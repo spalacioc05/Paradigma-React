@@ -18,7 +18,7 @@
 
 h1 {
   color: #61dafb; /* Azul de React */
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   line-height: 1.2;
   word-wrap: break-word;
 }
@@ -29,7 +29,7 @@ h1 span {
 
 .content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Por defecto, en columna */
   justify-content: center;
   align-items: flex-start;
   width: 100%;
@@ -86,7 +86,7 @@ button:hover {
   display: inline-block;
   text-align: left;
   max-width: 500px;
-  margin: 0 20px;
+  margin: 20px 0; /* Margen superior e inferior */
 }
 
 .resultados h2 {
@@ -105,4 +105,15 @@ button:hover {
 
 .resultados .value {
   font-weight: normal;
+}
+
+/* Media query para pantallas más grandes */
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row; /* En fila para pantallas más grandes */
+  }
+
+  .resultados {
+    margin: 0 20px; /* Margen izquierdo y derecho */
+  }
 }
