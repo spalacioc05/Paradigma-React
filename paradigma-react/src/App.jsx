@@ -28,10 +28,7 @@ function App() {
     if (!Number.isInteger(Number(personas))){
       alert("El número de personas debe ser un número entero");
       return;
-
     }
-
-
 
     // Cálculos de costos
     const costoEsfuerzo = precioPorHora * horas * personas;
@@ -61,49 +58,50 @@ function App() {
         <span>Calculadora de costos de</span>
         <span>Desarrollo de Software</span>
       </h1>
-      <form>
-        <div className="form-group">
-          <label>Precio por hora:</label>
-          <input type="number" value={precioPorHora} onChange={(e) => setPrecioPorHora(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label>Número de horas:</label>
-          <input type="number" value={horas} onChange={(e) => setHoras(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label>Número de personas:</label>
-          <input type="number" value={personas} onChange={(e) => setPersonas(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label>Gastos adicionales:</label>
-          <input type="number" value={gastosAdicionales} onChange={(e) => setGastosAdicionales(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label>Costos de infraestructura:</label>
-          <input type="number" value={costosInfraestructura} onChange={(e) => setCostosInfraestructura(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label>Viáticos:</label>
-          <input type="number" value={viaticos} onChange={(e) => setViaticos(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label>Porcentaje de riesgo:</label>
-          <input type="number" value={porcentajeRiesgo} onChange={(e) => setPorcentajeRiesgo(e.target.value)} />
-        </div>
-
-      </form>
-      {resultados &&  (
-        <div className="resultados">
-          <h2>Resultados</h2>
-          <p>Esfuerzo de Costo: ${resultados.costoEsfuerzo.toFixed(2)}</p>
-          <p>Coste total (antes de riesgos e impuestos): ${resultados.costoTotal.toFixed(2)}</p>
-          <p>Coste total con riesgo: ${resultados.costoTotalConRiesgo.toFixed(2)}</p>
-          <p>Retención en la fuente: ${resultados.retencion.toFixed(2)}</p>
-          <p>Reteica: ${resultados.reteica.toFixed(2)}</p>
-          <p>IVA: ${resultados.iva.toFixed(2)}</p>
-          <p>Costo Final: ${resultados.costoFinal.toFixed(2)}</p>
-        </div>
-      )}
+      <div className="content">
+        <form>
+          <div className="form-group">
+            <label>Precio por hora:</label>
+            <input type="number" value={precioPorHora} onChange={(e) => setPrecioPorHora(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label>Número de horas:</label>
+            <input type="number" value={horas} onChange={(e) => setHoras(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label>Número de personas:</label>
+            <input type="number" value={personas} onChange={(e) => setPersonas(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label>Gastos adicionales:</label>
+            <input type="number" value={gastosAdicionales} onChange={(e) => setGastosAdicionales(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label>Costos de infraestructura:</label>
+            <input type="number" value={costosInfraestructura} onChange={(e) => setCostosInfraestructura(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label>Viáticos:</label>
+            <input type="number" value={viaticos} onChange={(e) => setViaticos(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <label>Porcentaje de riesgo:</label>
+            <input type="number" value={porcentajeRiesgo} onChange={(e) => setPorcentajeRiesgo(e.target.value)} />
+          </div>
+        </form>
+        {resultados && (
+          <div className="resultados">
+            <h2>Resultados</h2>
+            <p>Esfuerzo de Costo: ${resultados.costoEsfuerzo.toFixed(2)}</p>
+            <p>Coste total (antes de riesgos e impuestos): ${resultados.costoTotal.toFixed(2)}</p>
+            <p>Coste total con riesgo: ${resultados.costoTotalConRiesgo.toFixed(2)}</p>
+            <p>Retención en la fuente: ${resultados.retencion.toFixed(2)}</p>
+            <p>Reteica: ${resultados.reteica.toFixed(2)}</p>
+            <p>IVA: ${resultados.iva.toFixed(2)}</p>
+            <p>Costo Final: ${resultados.costoFinal.toFixed(2)}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
