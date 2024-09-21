@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 120vh;
+  height: 200vh;
 }
 
 .logo {
@@ -18,7 +18,7 @@
 
 h1 {
   color: #61dafb; /* Azul de React */
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   line-height: 1.2;
   word-wrap: break-word;
 }
