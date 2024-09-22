@@ -31,7 +31,7 @@ function App() {
     }
 
     // Cálculos de costos
-    const costoEsfuerzo = precioPorHora * horas * personas;
+    const costoEsfuerzo = parseFloat(precioPorHora) * parseFloat(horas) * personas;
     const costoTotal = costoEsfuerzo + parseFloat(gastosAdicionales) + parseFloat(costosInfraestructura) + parseFloat(viaticos);
     const costoTotalConRiesgo = costoTotal + (porcentajeRiesgo / 100) * costoTotal;
     const retencion = costoTotalConRiesgo * 0.11;
@@ -92,9 +92,9 @@ function App() {
         {resultados && (
           <div className="resultados">
             <h2>Resultados</h2>
-            <p>Esfuerzo de Costo: ${resultados.costoEsfuerzo.toFixed(2)}</p>
-            <p>Coste total (antes de riesgos e impuestos): ${resultados.costoTotal.toFixed(2)}</p>
-            <p>Coste total con riesgo: ${resultados.costoTotalConRiesgo.toFixed(2)}</p>
+            <p>Costo de Esfuerzo: ${resultados.costoEsfuerzo.toFixed(2)}</p>
+            <p>Costo total (antes de riesgos e impuestos): ${resultados.costoTotal.toFixed(2)}</p>
+            <p>Costo total con riesgo: ${resultados.costoTotalConRiesgo.toFixed(2)}</p>
             <p>Retención en la fuente: ${resultados.retencion.toFixed(2)}</p>
             <p>Reteica: ${resultados.reteica.toFixed(2)}</p>
             <p>IVA: ${resultados.iva.toFixed(2)}</p>
