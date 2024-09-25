@@ -3,7 +3,6 @@ import './App.css';
 import logo from './assets/logo.png';
 
 function App() {
-  // Definición de estados locales
   const [precioPorHora, setPrecioPorHora] = useState(0);
   const [horas, setHoras] = useState(0);
   const [personas, setPersonas] = useState(0);
@@ -14,7 +13,6 @@ function App() {
   const [resultados, setResultados] = useState(undefined);
 
   useEffect(() => {
-    // Validación de los campos
     if (precioPorHora < 0 || horas < 0 || personas < 0 || gastosAdicionales < 0 || costosInfraestructura < 0 || viaticos < 0 || porcentajeRiesgo < 0) {
       alert("Todos los valores deben ser mayores o iguales a 0");
       return;
@@ -30,7 +28,6 @@ function App() {
       return;
     }
 
-    // Cálculos de costos
     const costoEsfuerzo = parseFloat(precioPorHora) * parseFloat(horas) * personas;
     const costoTotal = costoEsfuerzo + parseFloat(gastosAdicionales) + parseFloat(costosInfraestructura) + parseFloat(viaticos);
     const costoTotalConRiesgo = costoTotal + (porcentajeRiesgo / 100) * costoTotal;
@@ -39,7 +36,6 @@ function App() {
     const iva = (costoTotalConRiesgo + retencion + reteica) * 0.19;
     const costoFinal = costoTotalConRiesgo + retencion + reteica + iva;
 
-    // Actualización del estado con los resultados
     setResultados({
       costoEsfuerzo,
       costoTotal,
@@ -49,7 +45,16 @@ function App() {
       iva,
       costoFinal
     });
-  }, [precioPorHora, horas, personas, gastosAdicionales, porcentajeRiesgo,  costosInfraestructura, viaticos, resultados]);
+  }, [
+    precioPorHora,
+    horas,
+    personas,
+    gastosAdicionales,
+    porcentajeRiesgo,
+    costosInfraestructura,
+    viaticos,
+    resultados
+  ]);
 
   return (
     <div className="App">
@@ -103,7 +108,6 @@ function App() {
         )}
       </div>
     </div>
-    
   );
 }
 
